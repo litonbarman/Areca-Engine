@@ -25,7 +25,7 @@
 //#include "mesh.h"
 #include "ArrecaShader.hpp"
 
-#include "Shader.h"
+//#include "Shader.h"
 
 // stb header
 #include "stb_image.h"                            // note : SOIL.lib already included

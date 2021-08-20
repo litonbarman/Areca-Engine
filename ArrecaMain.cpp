@@ -7,7 +7,7 @@
 #include <iostream>
 #include <thread>
 #include <stdio.h>
-#include <GL/glew.h>
+#include <GL/glewCustom.h>
 #include <GLFW/glfw3.h>
 
 #include <Windows.h>

@@ -2,7 +2,7 @@
 #include <atomic>
 #include <mutex>
 #include <stdio.h>
-#include <GL/glew.h>
+#include <GL/glewCustom.h>
 #include <GLFW/glfw3.h>
 
 #include <Windows.h>
@@ -10,11 +10,16 @@
 #include "Arreca.hpp"
 #include "ArrecaBufferQueue.hpp"
 
+#include "ArrecaModel.hpp"
+#include "ArrecaShader.hpp"
+
+#include "ArrecaShaderDirect.hpp"
+
 using namespace Arreca;
 
 
 double timePre = glfwGetTime(), timeNow = glfwGetTime();
-int count=0;
+int countT=0;
 
 void ArrecaUserLogic(Arreca::Arreca_BufferQueue<int>*);
 void ArrecaUserRenderer(GLFWwindow*, Arreca::Arreca_BufferQueue<int>*);
@@ -24,6 +29,7 @@ std::mutex mu;
 
 
 int main(void) {
+
 	ArrecaInit();
 
 
@@ -35,6 +41,7 @@ int main(void) {
 	system("pause");
 
 	ArrecaTerminate();
+	
 	return 0;
 }
 
@@ -54,7 +61,7 @@ void ArrecaUserRenderer(GLFWwindow* window, Arreca::Arreca_BufferQueue<int>* buf
 	double timeDif = timeNow - timePre;
 	timePre = timeNow;
 
-	if (count >= 50) {
+	if (countT >= 50) {
 
 		Arreca::Arreca_BufferNode<int>* temp = buffer->dequeue();    // buffer is global located in ArrecaGameData
 		Arreca::Arreca_BufferNode<int>* hold;
@@ -64,7 +71,7 @@ void ArrecaUserRenderer(GLFWwindow* window, Arreca::Arreca_BufferQueue<int>* buf
 			temp = hold;
 		}
 
-		std::cout << temp->data << " \n";
+		//std::cout << temp->data << " \n";
 		delete temp;
 
 	//	printf("User Renderer\n");
@@ -74,14 +81,14 @@ void ArrecaUserRenderer(GLFWwindow* window, Arreca::Arreca_BufferQueue<int>* buf
 		printf("FPS : %.3f\n", (double)(1 / timeDif));
 		mu.unlock();
 		*/
-		count = 0;
+		countT = 0;
 	}
 	else {
-		count++;
+		countT++;
 	}
 
-	glEnableVertexAttribArray(0);
-	glDrawArrays(GL_TRIANGLES, 0, 3);
+	//glEnableVertexAttribArray(0);
+	//glDrawArrays(GL_TRIANGLES, 0, 3);
 	glDisableVertexAttribArray(0);
 
 }
