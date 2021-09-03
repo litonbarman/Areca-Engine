@@ -1,7 +1,7 @@
 #ifndef __ARRECA_HPP__
 #define __ARRECA_HPP__
 
-#include "ArrecaGameData.hpp"
+#include "ArrecaEngineGlobal.hpp"
 #include "ArrecaMain.hpp"
 #include "ArrecaBufferQueue.hpp"
 

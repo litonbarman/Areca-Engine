@@ -2,12 +2,12 @@
 #define __ARRECAMAIN_CPP__
 
 #include "ArrecaMain.hpp"
-#include "ArrecaGameData.hpp"
+#include "ArrecaEngineGlobal.hpp"
 
 #include <iostream>
 #include <thread>
 #include <stdio.h>
-#include <GL/glewCustom.h>
+#include <GL/glew.h>
 #include <GLFW/glfw3.h>
 
 #include <Windows.h>

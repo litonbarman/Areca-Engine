@@ -1,14 +1,15 @@
-#ifndef __ARRECASHADER_H__
-#define __ARRECASHADER_H__
+#ifndef __ARRECASHADERDIRECT_HPP__
+#define __ARRECASHADERDIRECT_HPP__
 
 #include <iostream>
 #include <stdio.h>
 #include <fstream>
 #include <sstream>
 #include <vector>
-#include <GL/glewCustom.h>
+#include <GL/glew.h>
 
-GLuint LoadShader(const char* vertex_file_path, const char* fragment_file_path) {
+GLuint ArrecaLoadShader(const char* vertex_file_path, const char* fragment_file_path) {
+	
 	GLuint VertexShaderId = glCreateShader(GL_VERTEX_SHADER);
 	GLuint FragmentShaderId = glCreateShader(GL_FRAGMENT_SHADER);
 
@@ -22,7 +23,7 @@ GLuint LoadShader(const char* vertex_file_path, const char* fragment_file_path) 
 		VertexShaderStream.close();
 	}
 	else {
-		printf("Impossible to open %s, you are not in the right directory\n", vertex_file_path);
+		fprintf(stderr, "ERROR::ARRECA_DIRECTSHADER:Impossible to open %s, you are not in the right directory\n", vertex_file_path);
 		system("pause");
 		return 0;
 	}
@@ -37,7 +38,7 @@ GLuint LoadShader(const char* vertex_file_path, const char* fragment_file_path) 
 		FragementShaderStream.close();
 	}
 	else {
-		printf("Impossible to open %s, you are not in the right directory\n", fragment_file_path);
+		fprintf(stderr, "ERROR::ARRECA_DIRECTSHADER:Impossible to open %s, you are not in the right directory\n", fragment_file_path);
 		return 0;
 	}
 

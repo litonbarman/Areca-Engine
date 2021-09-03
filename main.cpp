@@ -1,19 +1,22 @@
+#define _CRT_SECURE_NO_DEPRECATE
+#define _CRT_SECURE_NO_WARNINGS
+
 #include <thread>
 #include <atomic>
 #include <mutex>
 #include <stdio.h>
-#include <GL/glewCustom.h>
+#include <GL/glew.h>
 #include <GLFW/glfw3.h>
 
 #include <Windows.h>
 
 #include "Arreca.hpp"
 #include "ArrecaBufferQueue.hpp"
-
 #include "ArrecaModel.hpp"
 #include "ArrecaShader.hpp"
-
 #include "ArrecaShaderDirect.hpp"
+
+#include "ArrecaModelCollection.hpp"                // not working and still trying to figure out whats going on...
 
 using namespace Arreca;
 
@@ -29,7 +32,8 @@ std::mutex mu;
 
 
 int main(void) {
-
+/*
+//----------------------------------------------------------
 	ArrecaInit();
 
 
@@ -41,7 +45,22 @@ int main(void) {
 	system("pause");
 
 	ArrecaTerminate();
+//---------------------------------------------------------
+*/
 	
+	
+	Arreca::ArrecaModelCollection* modelCol;
+	modelCol = new Arreca::ArrecaModelCollection();
+
+	Sleep(400);
+	system("pause");
+	
+	delete modelCol;
+	
+
+	
+
+
 	return 0;
 }
 
@@ -63,7 +82,7 @@ void ArrecaUserRenderer(GLFWwindow* window, Arreca::Arreca_BufferQueue<int>* buf
 
 	if (countT >= 50) {
 
-		Arreca::Arreca_BufferNode<int>* temp = buffer->dequeue();    // buffer is global located in ArrecaGameData
+		Arreca::Arreca_BufferNode<int>* temp = buffer->dequeue();    // buffer is global located in ArrecaEngineGlobal
 		Arreca::Arreca_BufferNode<int>* hold;
 
 		while ((hold = buffer->dequeue()) != 0) {
@@ -71,7 +90,7 @@ void ArrecaUserRenderer(GLFWwindow* window, Arreca::Arreca_BufferQueue<int>* buf
 			temp = hold;
 		}
 
-		//std::cout << temp->data << " \n";
+		std::cout << temp->data << " \n";
 		delete temp;
 
 	//	printf("User Renderer\n");
@@ -87,9 +106,6 @@ void ArrecaUserRenderer(GLFWwindow* window, Arreca::Arreca_BufferQueue<int>* buf
 		countT++;
 	}
 
-	//glEnableVertexAttribArray(0);
-	//glDrawArrays(GL_TRIANGLES, 0, 3);
-	glDisableVertexAttribArray(0);
 
 }
 

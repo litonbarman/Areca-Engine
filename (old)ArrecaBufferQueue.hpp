@@ -84,19 +84,10 @@ namespace Arreca {
 					
 					return temp;
 				}
-				else if(this->bufferQueueSize == 1){
-				    Arreca_BufferNode<Arreca_BufferDataType>* temp = this->tail;
-					
-					this->head = 0;
-					this->tail = 0;
-					
-					this->bufferQueueSize = 0;
-					
-					return temp;
-				}
-				else {
+				else{
 					return 0;
 				}
+				
 				
 			}
 			

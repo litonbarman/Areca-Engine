@@ -20,6 +20,8 @@
 #include <vector>
 #include <string.h>
 #include <map>                                    // not in use, 'I think'
+#include <stdio.h>
+
 
 #include "ArrecaMesh.hpp"
 //#include "mesh.h"
@@ -54,6 +56,8 @@ namespace Arreca {
 			ArrecaModel( string const &path, bool gamma = false ) : gammaCorrection(gamma) {
 				
 				loadModel(path);
+				
+				printf("Model loaded\n");
 				
 			}
 			

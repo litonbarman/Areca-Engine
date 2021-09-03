@@ -3,13 +3,17 @@
 
 #include <vector>
 #include <stdio.h>
+
 #include <GL/glewCustom.h>
 #include <GLFW/glfw3.h>
 
 
-#include "ArrecaShader.hpp"
-#include "ArrecaBufferQueue.hpp"
 #include "ArrecaModel.hpp"
+#include "ArrecaShader.hpp"
+#include "ArrecaControls.hpp"
+#include "ArrecaBufferQueue.hpp"
+
+
 
 namespace Arreca {
 	
@@ -18,38 +22,24 @@ namespace Arreca {
 		Arreca::ArrecaShader shader;
 	};
 	
+	
 	class ArrecaModelBuffer {
 		
-	    private:
-		    
-			Arreca::ArrecaBufferQueue<ArrecaModelBuffer_Node>* buffer;
-			short size;
+		private:
 		
+		    std::vector<ArrecaModelBuffer_Node> model;
+			
 		public:
 		    
-			ArrecaModelBuffer(short size) : size(size) {
-
-				this->buffer = new Arreca::ArrecaBufferQueue<ArrecaModelBuffer_Node>();
-
-			}
-			
-			~ArrecaModelBuffer(){
-
-				this->buffer->~ArrecaBufferQueue();
-
-			}
-			
-			void enqueue(const ArrcaModelBuffer_Node &node){
+			ArrecaModelBuffer(){
 				
-				this->buffer->enqueue(node);
+				
 				
 			}
 			
-			ArrecaModelBuffer_Node* dequeue(){
-				this->buffer->dequeue();
-			}
-		
 	};
+	
+	
 	
 }
 
