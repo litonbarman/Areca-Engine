@@ -21,7 +21,6 @@
 using namespace Arreca;
 
 
-double timePre = glfwGetTime(), timeNow = glfwGetTime();
 int countT=0;
 
 void ArrecaUserLogic(Arreca::Arreca_BufferQueue<int>*);
@@ -47,15 +46,24 @@ int main(void) {
 	ArrecaTerminate();
 //---------------------------------------------------------
 */
-	
-	
-	Arreca::ArrecaModelCollection* modelCol;
-	modelCol = new Arreca::ArrecaModelCollection();
+	ArrecaInit();
 
-	Sleep(400);
-	system("pause");
+
 	
-	delete modelCol;
+	//Arreca::ArrecaModelCollection* modelCol;
+	//modelCol = new Arreca::ArrecaModelCollection();
+
+	do {
+		Sleep(200);
+	} while (!GetAsyncKeyState(VK_SPACE));
+
+	system("pause");
+
+
+	//Sleep(400);
+	//system("pause");
+	
+	//delete modelCol;
 	
 
 	
@@ -76,22 +84,24 @@ void ArrecaUserLogic(Arreca::Arreca_BufferQueue<int>* buffer) {
 }
 
 void ArrecaUserRenderer(GLFWwindow* window, Arreca::Arreca_BufferQueue<int>* buffer) {
-	timeNow = glfwGetTime();
-	double timeDif = timeNow - timePre;
-	timePre = timeNow;
+	//timeNow = glfwGetTime();
+	//double timeDif = timeNow - timePre;
+	//timePre = timeNow;
+
+	Arreca::Arreca_BufferNode<int>* temp = buffer->dequeue();    // buffer is global located in ArrecaEngineGlobal
+	Arreca::Arreca_BufferNode<int>* hold;
+
+	while ((hold = buffer->dequeue()) != 0) {
+		delete temp;
+		temp = hold;
+	}
+
+	//std::cout << temp->data << " \n";
+	delete temp;
+
+
 
 	if (countT >= 50) {
-
-		Arreca::Arreca_BufferNode<int>* temp = buffer->dequeue();    // buffer is global located in ArrecaEngineGlobal
-		Arreca::Arreca_BufferNode<int>* hold;
-
-		while ((hold = buffer->dequeue()) != 0) {
-			delete temp;
-			temp = hold;
-		}
-
-		std::cout << temp->data << " \n";
-		delete temp;
 
 	//	printf("User Renderer\n");
 
@@ -106,7 +116,7 @@ void ArrecaUserRenderer(GLFWwindow* window, Arreca::Arreca_BufferQueue<int>* buf
 		countT++;
 	}
 
-
+	
 }
 
 

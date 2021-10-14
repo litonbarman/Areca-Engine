@@ -10,6 +10,7 @@
 
 
 #include <iostream>
+#include <chrono>                                         // it replace  win32 Sleep(), to standard sleep_for()
 #include <thread>
 #include <atomic>
 #include <vector>
@@ -19,13 +20,17 @@
 #include <GLFW/glfw3.h>
 
 using namespace std;
+using namespace std::this_thread;
+using namespace std::chrono;
+
 using namespace Arreca;
 
 
 extern void ArrecaUserLogic(Arreca::Arreca_BufferQueue<int>*);
-extern void ArrecaUserRenderer(GLFWwindow* window, Arreca::Arreca_BufferQueue<int>*);
+extern void ArrecaUserRenderer(GLFWwindow* window, Arreca::Arreca_BufferQueue<int>*);             // changing here the return type to stablize the FPS (trying)
 
 namespace Arreca {
+	
 	std::atomic_bool ArrecaRunning = true;
 
 	Arreca::Arreca_BufferQueue<int>* globalArrecaBuffer = new Arreca::Arreca_BufferQueue<int>();
@@ -42,6 +47,8 @@ namespace Arreca {
 
 		GLFWwindow* window;
 		glewExperimental = true;
+
+		//double FPS = 0, delay = 0,  timePre = glfwGetTime(), timeNow = glfwGetTime();
 		
 		if (!glfwInit()) {
 			fprintf(stderr, "Error : Failed to initialized GLFW\n");
@@ -51,7 +58,7 @@ namespace Arreca {
 		glfwWindowHint(GLFW_SAMPLES, 4);
 		glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
 		glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-		glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);               // not necessary for windows OS
+		glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);                                         // not necessary for windows OS
 		glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
 		window = glfwCreateWindow(1024, 768, "Arreca Engine", NULL, NULL);
@@ -62,6 +69,7 @@ namespace Arreca {
 			exit(-1);
 		}
 		
+		glfwSetWindowPos(window, 600, 100);
 		glfwMakeContextCurrent(window);
 
 		if (glewInit() != GLEW_OK) {
@@ -114,12 +122,17 @@ namespace Arreca {
 
 
             ArrecaUserRenderer(window, globalArrecaBuffer);
+			
 			ourModel.Draw(ourShader);
 			//----------------------------------------------------------------------------
             
+			
 			glfwSwapBuffers(window);
 			glfwPollEvents();
-			Sleep(15);
+
+
+			sleep_for(milliseconds(14));
+
 		}
 		while (ArrecaRunning && glfwGetKey(window, GLFW_KEY_ESCAPE) != GLFW_PRESS && glfwWindowShouldClose(window) == 0);
 

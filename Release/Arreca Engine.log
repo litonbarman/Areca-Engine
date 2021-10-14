@@ -1,5 +1,5 @@
 ﻿  main.cpp
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\shared\minwindef.h(130,1): warning C4005: 'APIENTRY': macro redefinition
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\shared\minwindef.h(130,1): warning C4005: 'APIENTRY': macro redefinition
 C:\Users\liton\Desktop\Work\Arreca_Engine\Work_with_x86\6 Arreca Engine\Dependencies\GLFW\include\GLFW\glfw3.h(123): message : see previous definition of 'APIENTRY'
 C:\Users\liton\Desktop\Work\Arreca_Engine\Work_with_x86\6 Arreca Engine\Arreca Engine\ArrecaShader.hpp(94,48): warning C4101: 'e': unreferenced local variable
 C:\Users\liton\Desktop\Work\Arreca_Engine\Work_with_x86\6 Arreca Engine\Arreca Engine\ArrecaModelCollection_DB.hpp(144,1): warning C4267: '=': conversion from 'size_t' to 'short', possible loss of data
@@ -8,9 +8,9 @@ SOIL.lib(stb_image_aug.obj) : warning LNK4075: ignoring '/EDITANDCONTINUE' due t
 LINK : warning LNK4098: defaultlib 'LIBCMT' conflicts with use of other libs; use /NODEFAULTLIB:library
 LINK : warning LNK4098: defaultlib 'MSVCRTD' conflicts with use of other libs; use /NODEFAULTLIB:library
   Generating code
-  87 of 601 functions (14.5%) were compiled, the rest were copied from previous compilation.
-    63 functions were new in current compilation
-    63 functions had inline decision re-evaluated but remain unchanged
+  50 of 742 functions ( 6.7%) were compiled, the rest were copied from previous compilation.
+    46 functions were new in current compilation
+    11 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
 SOIL.lib(stb_image_aug.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'SOIL.lib(stb_image_aug.obj)' or at 'C:\Users\liton\Desktop\Work\Arreca_Engine\Work_with_x86\6 Arreca Engine\Release\vc110.pdb'; linking object as if no debug info
   Arreca Engine.vcxproj -> C:\Users\liton\Desktop\Work\Arreca_Engine\Work_with_x86\6 Arreca Engine\Release\Arreca Engine.exe
