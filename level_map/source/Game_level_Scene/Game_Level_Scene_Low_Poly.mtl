@@ -1,0 +1,84 @@
+# Wavefront .mtl file  -  created by SpaceDraw
+
+# File created: 20-03-28, 19:40
+
+newmtl rock
+Ns 128.0
+d 1.0
+Tr 0.0
+illum 2
+Ka 0.4039 0.2627 0.1882 
+Kd 0.4039 0.2627 0.1882 
+Ks 0.0 0.0 0.0 
+Ke 0.0 0.0 0.0 
+
+newmtl grass
+Ns 128.0
+d 1.0
+Tr 0.0
+illum 2
+Ka 0.0 0.396 0.0431 
+Kd 0.0 0.396 0.0431 
+Ks 0.0313 0.0313 0.0313 
+Ke 0.0 0.0 0.0 
+
+newmtl bigrock
+Ns 118.1
+d 1.0
+Tr 0.0
+illum 2
+Ka 0.59599996 0.3058 0.196 
+Kd 0.59599996 0.3058 0.196 
+Ks 0.0 0.0 0.0 
+Ke 0.0 0.0 0.0 
+
+newmtl treeleaves
+Ns 127.200005
+d 1.0
+Tr 0.0
+illum 2
+Ka 0.0784 0.4235 0.1019 
+Kd 0.0784 0.4235 0.1019 
+Ks 0.0 0.0 0.0 
+Ke 0.0 0.0 0.0 
+
+newmtl treestump
+Ns 124.8
+d 1.0
+Tr 0.0
+illum 2
+Ka 0.48229998 0.3098 0.21959999 
+Kd 0.48229998 0.3098 0.21959999 
+Ks 0.0 0.0 0.0 
+Ke 0.0 0.0 0.0 
+
+newmtl stylized_walkway
+Ns 128.0
+d 1.0
+Tr 0.0
+illum 2
+Ka 0.6196 0.39999998 0.2862 
+Kd 0.6196 0.39999998 0.2862 
+Ks 0.0901 0.0901 0.0901 
+Ke 0.0 0.0 0.0 
+
+newmtl Portal_crystal
+Ns 128.0
+d 1.0
+Tr 0.0
+illum 2
+Ka 0.27449998 0.2823 0.3647 
+Kd 0.27449998 0.2823 0.3647 
+Ks 0.0 0.0 0.0 
+Ke 0.0 0.0 0.0 
+
+newmtl Crystal_glowing
+Ns 62.9
+d 1.0
+Tr 0.0
+illum 2
+Ka 0.2588 0.447 1.0 
+Kd 0.2588 0.447 1.0 
+Ks 0.2588 0.447 1.0 
+Ke 0.2588 0.447 1.0 
+

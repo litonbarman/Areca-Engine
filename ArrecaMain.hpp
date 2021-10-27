@@ -39,7 +39,7 @@ namespace Arreca {
 	void LogicRender() {
 		 while(ArrecaRunning) {
 			ArrecaUserLogic(globalArrecaBuffer);
-			 Sleep(100);
+			Sleep(100);
 		 }
 	}
 
