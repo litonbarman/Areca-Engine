@@ -9,11 +9,11 @@
 
 ![This is an image](https://github.com/Liton-Barman/Arreca-Engine/blob/main/Demo/images/openWorld.png)
 
-### Can effeftively physical light
+### Can effeftively simulate physical light
 
 ![This is an image](https://github.com/Liton-Barman/Arreca-Engine/blob/main/Demo/images/light.png)
 
-### Can high quality models
+### Can load and render high quality models
 ![This is an image](https://github.com/Liton-Barman/Arreca-Engine/blob/main/Demo/images/Screenshot%20(561).png)
 
 ### Amazing Graphics
